@@ -71,7 +71,19 @@ export class AppComponent {
    const {phone:ci} = per3;
    console.log('name=', ci); 
 
+   const ejer1 = {1:'a',2:'a',3:'a',4:'a',5:'a',6:'a'};
+  console.log('ejercicio1',Object.values(ejer1));
+
+  const ejer2 = [1,2,3,4,5,6].filter(item => item%2).join();
+  console.log(ejer2)
+
  }
+
+ //{1:'a',2:'a',3:'a',4:'a',5:'a',6:'a'} convertir a un array y sumar los numeros pares
+
+//[1,2,3,4,5,6] filtrar los numeros impares y mostrarlos como cadena
+
+
  
 
 }
