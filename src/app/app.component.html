@@ -1,6 +1,10 @@
 <p>App Component Liz</p>
+<p> {{myvarjaja}}</p>
 
-<app-test1-liz status = "busy"></app-test1-liz>
+<app-test1-liz 
+[status] = "myStatus" 
+(onSendData)="printDataLizComp($event)">
+</app-test1-liz>
 
 <app-test2></app-test2>  
 

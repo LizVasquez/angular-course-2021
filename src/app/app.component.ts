@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularCourse';
+  myStatus = 'my status';
+
   constructor(){
 
     const testMap = [1,2,3,4,5,6].map(item => item * 2);
@@ -84,6 +86,8 @@ export class AppComponent {
 //[1,2,3,4,5,6] filtrar los numeros impares y mostrarlos como cadena
 
 
- 
+ printDataLizComp(event:any){
+   console.log('LIZ COMP:', event);
+ }
 
 }
