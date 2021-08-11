@@ -5,7 +5,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './test2.component.html',
   styleUrls: ['./test2.component.scss']
 })
-export class Test2Component implements OnInit {
+export class Test2Component {
 
   @Input() name: string;
   @Input() lastName: string;
