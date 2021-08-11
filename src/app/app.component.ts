@@ -90,4 +90,8 @@ export class AppComponent {
    console.log('LIZ COMP:', event);
  }
 
+ printData(event){
+  console.log('CHILD COMP SEND DATA: ', event);
+}
+
 }

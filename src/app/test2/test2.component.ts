@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-test2',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Test2Component implements OnInit {
 
+  @Input() name: string;
+  @Input() lastName: string;
+
+  @Output()onSendData = new EventEmitter(null);
+  
+
   constructor() { }
 
-  ngOnInit(): void {
+  onShowData(){
+    this.onSendData.emit('General Data ' + this.name + ' ' + this.lastName);
+
   }
 
 }
