@@ -11,6 +11,10 @@ export class Test2Component implements OnInit {
   @Input() lastName: string;
 
   @Output()onSendData = new EventEmitter(null);
+
+  /* myvar de la clase del 10 agosto*/
+  myvar1 = 4;
+  myvar2 = 5;
   
 
   constructor() { }
@@ -18,6 +22,22 @@ export class Test2Component implements OnInit {
   onShowData(){
     this.onSendData.emit('General Data ' + this.name + ' ' + this.lastName);
 
+  }
+
+  /* clase de 10 agosto */
+  test0(event){
+    console.log('event click:', event);
+    /*this.myvar1 = 'mundo';*/
+    console.log('suma:', this.myvar1 + this.myvar2);
+
+  }
+
+  test1(event){
+    console.log('event blur:', event);
+  }
+
+  test3(event){
+    console.log('event doubleClick:', event);
   }
 
 }
