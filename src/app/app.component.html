@@ -86,6 +86,29 @@
 <p>----------------</p>
 
 
+<!-- TAREA 11/08/21 OP1-->
+<ul>
+<li *ngFor="let complete of listNames">
+
+  <app-test1-liz 
+  [status] = "complete.lastName + ' ' + complete.name" 
+  (onSendData)="printDataLizComp($event)">
+  </app-test1-liz>
+</li>
+</ul>
+
+<!-- TAREA 11/08/21 OP2-->
+<ul>
+<li *ngFor="let complete of listNames">
+<app-test2
+[name]="complete.name" 
+[lastName]="complete.lastName" 
+(onSendData)="printData($event)">
+</app-test2> 
+</li>
+</ul>
+
+
 
 
 

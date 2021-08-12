@@ -14,6 +14,12 @@ export class AppComponent {
   /* variable para swithCase*/
   color: string;
 
+  /* variable para lista de nombres*/
+
+  listNames = [{name: 'Liz', lastName:'Vasquez'},
+          {name: 'Lili', lastName:'Mendoza'},
+          {name: 'Carolina', lastName:'Sanchez'}];
+
 
   constructor(){
 
