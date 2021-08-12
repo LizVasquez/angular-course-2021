@@ -15,3 +15,18 @@
 <app-test3></app-test3>
 
 
+<input type="text" [(ngModel)]="myStatus">
+
+
+<button (click)= "sw = !sw">SHOW TEST3 CLASE</button>
+<div *ngIf="sw">
+  <app-test3-clase 
+  [name]="myStatus">
+  </app-test3-clase>
+</div>
+
+
+
+
+
+
