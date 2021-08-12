@@ -17,14 +17,73 @@
 
 <input type="text" [(ngModel)]="myStatus">
 
-
-<button (click)= "sw = !sw">SHOW TEST3 CLASE</button>
+<!-- EJEMPLO INICIAL DE NGIF-->
+<!-- <button (click)= "sw = !sw">SHOW TEST3 CLASE</button>
 <div *ngIf="sw">
   <app-test3-clase 
   [name]="myStatus">
   </app-test3-clase>
-</div>
+</div> 
+-->
 
+<button (click)= "sw = !sw">SHOW TEST3 CLASE</button>
+<div [hidden]="sw">
+  <app-test3-clase 
+  [name]="myStatus">
+  </app-test3-clase>
+</div> 
+
+
+<!-- EJEMPLOS NGFOR -->
+<ul >
+  <li *ngFor="let item of [1,2,3,4,5,6]">{{item}}</li>
+  <li> First</li>
+  <li> Second</li>
+  <li> Third</li>
+</ul>
+
+<ul>
+<li *ngFor="let item2 of ['first', 'second']">{{item2}}</li>
+</ul>
+
+<ul>
+<li *ngFor="let item3 of ['first', 'second']; let i=index ">{{item3}}{{i}}</li>
+</ul>
+
+
+<!-- EJEMPLOS NGSWITCH -->
+<input type="text" [(ngModel)]="color">
+<ul [ngSwitch]="color">
+  <li *ngSwitchCase="'red'">red </li>
+  <li *ngSwitchCase="'yellow'">yellow </li>
+  <li *ngSwitchCase="'green'">green </li>
+  <li *ngSwitchDefault>Default orange </li>
+</ul>
+
+
+<!-- COMBINANDO NGFOR CON COMPONENTE -->
+
+<ul>
+  <li *ngFor="let item4 of ['first', 'second']; let i=index ">
+  
+    <app-test1-liz 
+    [status] = "item4" 
+    (onSendData)="printDataLizComp($event)">
+    </app-test1-liz>
+  </li>
+</ul>
+
+<!-- COMBINANDO NGFOR, NGIF CON COMPONENTE -->
+<p>----------------</p>
+<span *ngFor="let item5 of ['first', 'second', 'fourth']; let i=index ">
+
+  <app-test1-liz
+  *ngIf="item5 !== 'first'" 
+  [status] = "item5" 
+  (onSendData)="printDataLizComp($event)">
+  </app-test1-liz>
+</span>
+<p>----------------</p>
 
 
 
