@@ -182,6 +182,24 @@ MI P WITH STYLE fontsize
 </div>
 
 
+<!-- tarea4 11/08/-->
+
+<span *ngFor="let num of [0,1,2,4,7,11]">
+  <div *ngIf= "num%2 !==0 else num2">
+    <p [style.background]="'lavender'">{{num}}</p>
+  </div>
+  <ng-template #num2>
+    <p [style.background]="'salmon'">{{num}}</p>
+  </ng-template>
+
+</span>
+
+
+
+
+
+
+
 
 
 
