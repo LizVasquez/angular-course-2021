@@ -32,7 +32,7 @@ export class Test2Component {
     console.log('event click:', event);
     /*this.myvar1 = 'mundo';*/
     console.log('suma:', this.myvar1 + this.myvar2);
-    console.log('NAME:', this.myvar5 +' ' + this.myvar6);
+    /*console.log('NAME:', this.myvar5 +' ' + this.myvar6);*/
 
   }
 

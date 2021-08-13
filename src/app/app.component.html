@@ -108,6 +108,82 @@
 </li>
 </ul>
 
+<!--EJEMPLO NG TEMPLATE CON VARIABLE LOCAL 11/08/2021 --> 
+<button (click)= "sw = !sw">SHOW TEST3 CLASE</button>
+<div *ngIf="sw else myVarElse ">
+  <app-test3-clase 
+  [name]="myStatus">
+  </app-test3-clase>
+</div> 
+
+<div #myDiv1>
+  <p> My Div 1</p>
+</div>
+
+<ng-template #myVarElse>
+  <p> It is my Template </p>
+</ng-template>
+
+
+<!-- EJEMPLO NG CONTENT 11/08 -->
+<app-test2
+ name="Liz" 
+ lastName="Vasquez" 
+ (onSendData)="printData($event)">
+
+ <p> Mi propio Contenido</p>
+ <p> Mi propio Contenido</p>
+ <button> boton Content</button>
+</app-test2>
+
+
+<!-- EJEMPLO NG CONTEINER 11/08 -->
+<button (click)= "sw = !sw">SHOW TEST3 CLASE</button>
+<ng-container *ngIf="sw" style="margin: 30px;">
+  <p> Mi NG CONTEINER</p>
+</ng-container>
+
+ <!--   ESTILOS -->
+<!-- Ejemplo  directiva de atributo 11/08 -->
+<input type="text" [(ngModel)]="color">
+<div [style.border]="'5px solid ' + color ">
+MI DIV WITH STYLE border
+</div>
+
+<input type="text" [(ngModel)]="color">
+<div [style.background]="color">
+MI DIV WITH STYLE backgound
+</div>
+
+<input type="number" [(ngModel)]="color">
+<p [style.fontSize.px]="color">
+MI P WITH STYLE fontsize
+</p>
+
+<p [ngStyle]="{
+  'background':'color',
+  'border': '5px gray solid'
+}"> My P with ngStyle
+</p>
+
+
+<p>-----------------------------</p>
+<!-- Ejemplo con ngclass -->
+<div [class.algo1]="color === 'hola'">
+  My div with class 1
+</div>
+
+<div [ngClass]="{
+  'algo1': color === 'hola0',
+  'algo2': color === 'hola1',
+  'algo3': color === 'hola2'
+}">
+  My div with ngclass
+</div>
+
+
+
+
 
 
 
