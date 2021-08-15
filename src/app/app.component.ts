@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {of} from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import {BehaviorSubject, of, Subscription} from 'rxjs';
+import { delay, filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +19,11 @@ export class AppComponent {
   
   /* variable clase del 12-08 */
 
-  tiktok = of([1,2,3,4,5]);
+  //tiktok = of([1,2,3,4,5]);
+  personASub: Subscription;
+  video = 1;
+  tiktok = new BehaviorSubject(this.video);
+  
 
   /* variable para lista de nombres*/
 
@@ -104,10 +108,18 @@ export class AppComponent {
     console.log(' PERSON A VIDEO', v);
   });*/
 
-  /* con operadores */
+  /* con operadores 
   this.tiktok.pipe(
-    map(s => s.join('-')),
-    map(s => s + 'hola')
+  map(s => s.join('-')),
+  map(s => s + 'hola')
+  ).subscribe(v => {
+    console.log(' PERSON A VIDEO', v);
+  });*/
+
+
+  /* subscripcion */
+  this.personASub = this.tiktok.pipe(
+    filter(s => s%2===0)
   ).subscribe(v => {
     console.log(' PERSON A VIDEO', v);
   });
@@ -117,11 +129,20 @@ export class AppComponent {
     console.log(' PERSON B VIDEO', v);
   });*/
 
+  /* CON OPERADORES  
   this.tiktok.pipe(
-    filter((v:any ) => v[0]%2 === 1)
+  filter((v:any ) => v[0]%2 === 1)
+  ).subscribe(v => {
+    console.log(' PERSON B VIDEO', v);
+  });*/
+
+  this.tiktok.pipe(
+    delay(4000),
   ).subscribe(v => {
     console.log(' PERSON B VIDEO', v);
   });
+
+
 
   /* PERSON c */
   this.tiktok.subscribe(v => {
@@ -131,7 +152,15 @@ export class AppComponent {
  }
 
  onAddVideo(){
+    //this.tiktok.next(2);
+    this.video ++
+   this.tiktok.next(this.video);
  }
+
+ person1Unsubscribe(){
+  this.personASub.unsubscribe();
+  console.log('PERSONA A YA NO ESTA SUSCRITA');
+}
 
  //{1:'a',2:'a',3:'a',4:'a',5:'a',6:'a'} convertir a un array y sumar los numeros pares
 
