@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {of} from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +15,11 @@ export class AppComponent {
 
   /* variable para swithCase*/
   color: string;
+
+  
+  /* variable clase del 12-08 */
+
+  tiktok = of([1,2,3,4,5]);
 
   /* variable para lista de nombres*/
 
@@ -91,6 +98,39 @@ export class AppComponent {
   const ejer2 = [1,2,3,4,5,6].filter(item => item%2).join();
   console.log(ejer2)
 
+   /* PERSON A */
+  /* --NORMAL 
+  this.tiktok.subscribe(v => {
+    console.log(' PERSON A VIDEO', v);
+  });*/
+
+  /* con operadores */
+  this.tiktok.pipe(
+    map(s => s.join('-')),
+    map(s => s + 'hola')
+  ).subscribe(v => {
+    console.log(' PERSON A VIDEO', v);
+  });
+
+   /* PERSON B */
+  /*this.tiktok.subscribe(v => {
+    console.log(' PERSON B VIDEO', v);
+  });*/
+
+  this.tiktok.pipe(
+    filter((v:any ) => v[0]%2 === 1)
+  ).subscribe(v => {
+    console.log(' PERSON B VIDEO', v);
+  });
+
+  /* PERSON c */
+  this.tiktok.subscribe(v => {
+    console.log(' PERSON C VIDEO', v);
+  });
+
+ }
+
+ onAddVideo(){
  }
 
  //{1:'a',2:'a',3:'a',4:'a',5:'a',6:'a'} convertir a un array y sumar los numeros pares
