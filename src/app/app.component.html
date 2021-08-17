@@ -200,6 +200,20 @@ MI P WITH STYLE fontsize
 
  <button (click)="person1Unsubscribe()"> Uns Person A</button>
 
+ <p>-----------DIRECTIVA DE ATRIBUTO 16/08--------------</p>
+ <!-- 16/08 -->
+
+ <button lizDirectiva (click)="onAddVideo()"> add Video </button>
+
+ <button lizDirectiva (click)="person1Unsubscribe()"> Uns Person A</button>
+
+
+ <p [lizDirectiva]="'red'"
+ (outputDirectiva)= "testDir($event)"> 
+  Mi primera Directiva de atributo </p>
+
+ <app-test1-liz></app-test1-liz>
+
 
 
 

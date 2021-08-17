@@ -175,4 +175,9 @@ export class AppComponent {
   console.log('CHILD COMP SEND DATA: ', event);
 }
 
+//16/08
+testDir(event){
+  console.log('Output de la directiva1:', event);
+}
+
 }
