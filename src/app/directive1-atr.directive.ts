@@ -1,14 +1,16 @@
-import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostListener, Input, OnChanges, Output } from '@angular/core';
 /* clase del 16/08 directiva de atributo */
 @Directive({
   selector: '[lizDirectiva]'
 })
-export class Directive1AtrDirective {
+export class Directive1AtrDirective implements OnChanges{
 
   //@Input() color: string = 'lime';
 
   @Input() lizDirectiva: string = 'lime';
   @Output() outputDirectiva = new EventEmitter<any>(null);
+
+  color:string;
   
 
   /* escucha a nivel de directiva */
@@ -47,6 +49,11 @@ export class Directive1AtrDirective {
    /*----------PARA BUENAS PRACTICAS DE CODIGO */
   setBackgroundColor (color:string){
     this.element.nativeElement.style.backgroundColor = color;
+   }
+
+   /* tarea de banana box con directiva de atributo */
+   ngOnChanges(changes:any){
+    this.setBackgroundColor(changes.lizDirectiva.currentValue)
    }
 
 }

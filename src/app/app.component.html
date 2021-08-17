@@ -207,10 +207,16 @@ MI P WITH STYLE fontsize
 
  <button lizDirectiva (click)="person1Unsubscribe()"> Uns Person A</button>
 
+<!-- enlace de la tarea2  banana box 16/08-->
+<input type="text" [(ngModel)]="color">
 
- <p [lizDirectiva]="'red'"
+<p [lizDirectiva]="color"
  (outputDirectiva)= "testDir($event)"> 
   Mi primera Directiva de atributo </p>
+
+ <!--<p [lizDirectiva]="'red'"
+ (outputDirectiva)= "testDir($event)"> 
+  Mi primera Directiva de atributo </p> -->
 
  <!--<app-test1-liz></app-test1-liz>-->
 
