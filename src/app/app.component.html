@@ -212,7 +212,21 @@ MI P WITH STYLE fontsize
  (outputDirectiva)= "testDir($event)"> 
   Mi primera Directiva de atributo </p>
 
- <app-test1-liz></app-test1-liz>
+ <!--<app-test1-liz></app-test1-liz>-->
+
+
+ <p>-----------DIRECTIVA ESTRUCTURAL 16/08--------------</p>
+ <!--<div *directivaEstruc="true">
+   <p> Mi primera directiva estructural</p>
+ </div> -->
+
+
+
+ <!-- para enlazar con banana box -->
+ <input type="checkbox" [(ngModel)]= "sw"> Directiva2Estr
+ <div *directivaEstruc="sw">
+ <p> Mi primera directiva estructural</p>
+</div>
 
 
 
