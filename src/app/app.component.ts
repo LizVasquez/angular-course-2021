@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {BehaviorSubject, of, Subscription} from 'rxjs';
 import { delay, filter, map } from 'rxjs/operators';
 
@@ -29,7 +29,15 @@ export class AppComponent {
 
   listNames = [{name: 'Liz', lastName:'Vasquez'},
           {name: 'Lili', lastName:'Mendoza'},
-          {name: 'Carolina', lastName:'Sanchez'}];
+          {name: 'Carolina', lastName:'Sanchez'}
+        ];
+
+//---17/08
+@ViewChild('myDivv1') myDivv1: ElementRef;
+
+@ViewChild('myDivv2') myDivv2: ElementRef;
+
+@ViewChild('myCompDivv') myCompDivv: any;
 
 
   constructor(){
@@ -179,5 +187,16 @@ export class AppComponent {
 testDir(event){
   console.log('Output de la directiva1:', event);
 }
+
+
+//17-08
+onShowLocalVars(){
+  console.log(this.myDivv1, this.myDivv2, this.myCompDivv);
+  this.myCompDivv.onClickTest();
+
+
+  this.myDivv2.nativeElement.value = 'liz';
+}
+
 
 }
