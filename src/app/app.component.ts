@@ -39,6 +39,8 @@ export class AppComponent {
 
 @ViewChild('myCompDivv') myCompDivv: any;
 
+@ViewChild('task') task: ElementRef;
+
 
   constructor(){
 
@@ -196,6 +198,11 @@ onShowLocalVars(){
 
 
   this.myDivv2.nativeElement.value = 'liz';
+}
+//tarea 17/08
+onChangeBorderTask(){
+  console.log('Change Border task: ', this.task);
+  this.task.nativeElement.style = 'border: 6px lime solid';
 }
 
 
