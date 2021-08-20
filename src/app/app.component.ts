@@ -202,8 +202,8 @@ onShowLocalVars(){
 //tarea 17/08
 onChangeBorderTask(){
   console.log('Change Border task: ', this.task);
-  //this.task.nativeElement.className = "algo3";
-  this.task.nativeElement.style = 'border: 6px lime solid';
+  this.task.nativeElement.className = "algo4";
+  //this.task.nativeElement.style = 'border: 6px lime solid';
   
 }
 
