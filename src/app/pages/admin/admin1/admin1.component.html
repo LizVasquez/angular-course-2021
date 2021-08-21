@@ -1,6 +1,31 @@
 <div style="border: 5px navy solid;"> 
   ADMIN1 COMPONENT
 
+
+  <!-- pipes 18/08-->
+  <p>{{'liz' | uppercase}}</p>
+  <p>{{name | uppercase}}</p>
+  <p>{{name}}</p>
+
+  <p>{{ 'LILIANA' | lowercase}}</p>
+
+  <p>{{ ['a','b','c','d','e'] | slice: 2:4}}</p>
+
+  <p *ngFor="let item of ['a','b','c','d','e'] | slice: 2:4">
+    {{item}}
+  </p>
+
+  <p>{{auxJSON | json}}</p>
+
+  
+
   <app-loader></app-loader>
   <app-card></app-card>
 </div>
+
+<p *ngFor="let item of auxObs$ | async">
+  {{item}}
+</p>
+
+
+<button (click)= "onAddPipe(">add Pipe</button>
