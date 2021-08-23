@@ -260,7 +260,60 @@ MI P WITH STYLE fontsize
 <app-admin1></app-admin1>
 
 <p>----- TAREA 18/08  ----</p>
+
 <app-core1></app-core1>
+
+
+
+<p>----- FIRST TEST 23/08/2021 ----</p>
+
+1- VACUNAS
+<div style="display: flex; flexDirection: row;">
+  <div *ngFor="let vacuna of section.vacunados">
+    <app-first-test 
+      [nombre]="vacuna.name"
+      [edad]= "vacuna.age"
+      [fecha]="vacuna.date">
+    </app-first-test>
+    
+  </div>
+</div>
+
+<p> NOT VACCINATED</p>
+
+<div style="display: flex; flexDirection: row;">
+  <div *ngFor="let vacuna of section.noVacunados">
+    <app-first-test 
+      [edad]= "vacuna.age"
+      [fecha]="novacuna.date"
+      [nombre]="vacuna.name"
+      [enfermedad]= "vacuna.disease"
+      [tipo]="vacuna.vaccineType" 
+      [vacunado]="vacuna.vaccined"
+      [dosis]="vacuna.doses">
+    </app-first-test>
+  
+  </div>
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+<app-first-test></app-first-test>
+
+
+
+
+
+
 
 
 

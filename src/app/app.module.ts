@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { Directive1AtrDirective } from './directive1-atr.directive';
 import { Directive2EstrucDirective } from './directive2-estruc.directive';
+import { FirstTestComponent } from './first-test/first-test.component';
 import { Module1Module } from './module1/module1.module';
 import { AdminModule } from './pages/admin/admin.module';
 import { BuyModule } from './pages/buy/buy.module';
@@ -23,7 +24,9 @@ import { Test3Component } from './test3/test3.component';
     Test3Component,
     Test3ClaseComponent,
     Directive1AtrDirective,
-    Directive2EstrucDirective
+    Directive2EstrucDirective,
+    FirstTestComponent
+
   ],
   imports: [
     BrowserModule,
