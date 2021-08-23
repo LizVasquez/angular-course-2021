@@ -267,13 +267,19 @@ MI P WITH STYLE fontsize
 
 <p>----- FIRST TEST 23/08/2021 ----</p>
 
+<p>VACUNADOS {{section.vacunados.length}}</p>
+<p>NO VACUNADOS {{section.noVacunados.length}}</p>
+
 1- VACUNAS
+
+<p>VACCINATED</p>
 <div style="display: flex; flexDirection: row;">
   <div *ngFor="let vacuna of section.vacunados">
     <app-first-test 
       [nombre]="vacuna.name"
       [edad]= "vacuna.age"
       [fecha]="vacuna.date">
+      
     </app-first-test>
     
   </div>
@@ -282,15 +288,16 @@ MI P WITH STYLE fontsize
 <p> NOT VACCINATED</p>
 
 <div style="display: flex; flexDirection: row;">
-  <div *ngFor="let vacuna of section.noVacunados">
+  <div *ngFor="let nvacuna of section.noVacunados">
     <app-first-test 
-      [edad]= "vacuna.age"
-      [fecha]="novacuna.date"
-      [nombre]="vacuna.name"
-      [enfermedad]= "vacuna.disease"
-      [tipo]="vacuna.vaccineType" 
-      [vacunado]="vacuna.vaccined"
-      [dosis]="vacuna.doses">
+      [edad]= "nvacuna.age"
+      [fecha]="nvacuna.date"
+      [nombre]="nvacuna.name"
+      [enfermedad]= "nvacuna.disease"
+      [tipo]="nvacuna.vaccineType" 
+      [vacunado]="nvacuna.vaccined"
+      [dosis]="nvacuna.doses"
+      (vacunar)="vacunar(nvacuna, 'noVacunados')">
     </app-first-test>
   
   </div>
