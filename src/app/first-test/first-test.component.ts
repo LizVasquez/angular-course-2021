@@ -3,12 +3,16 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-first-test',
   template: `
-  <div [style.background]="vaccined === 0 ? 'red' : 'green'"
+  <div [style.background]="vacunado === 0 ? 'red' : 'green'"
     style="float: left; margin: 20px; padding: 20px;">
     <p>Nombre: {{nombre | uppercase}}</p>
 	  <p>edad: {{edad}}</p>
-	  <p>date: {{date | date: 'M/d/yy'}}</p>
+	  <!-- <p>date: {{fecha | date: 'M/d/yy'}}</p> -->
+    <p> date: {{fecha}}</p> 
     <p>vaccined: {{vaccined }}</p>
+    <p>vaccineType: {{tipo }}</p>
+    <p>doses: {{dosis }}</p>
+    <p>disease: {{enfermedad }}</p>
   </div>
 
   <button (click)="onVacunar()" [disabled]=" age < 18 && disease == true ">
@@ -16,6 +20,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
     </button>
 
   `
+  
   ,
   
 })
