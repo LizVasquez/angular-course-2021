@@ -18,12 +18,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
       vaccinate
     </button>
   </div>
-
-  
-
-  `
-  
-  ,
+  `,
   
 })
 export class FirstTestComponent {
@@ -43,6 +38,11 @@ export class FirstTestComponent {
 
   onVacunar() {
     this.vacunar.emit();
+  }
+
+  dosisVac(tipo:string){
+    
+
   }
 
 
