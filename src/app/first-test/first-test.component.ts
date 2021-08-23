@@ -9,15 +9,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 	  <p>edad: {{edad}}</p>
 	  <!-- <p>date: {{fecha | date: 'M/d/yy'}}</p> -->
     <p> date: {{fecha}}</p> 
-    <p>vaccined: {{vaccined }}</p>
-    <p>vaccineType: {{tipo }}</p>
-    <p>doses: {{dosis }}</p>
-    <p>disease: {{enfermedad }}</p>
-  </div>
+    <p>vaccined: {{vacunado}}</p>
+    <p *ngIf="vacunado===0">vaccineType: {{tipo}}</p>
+    <p *ngIf="vacunado===0">doses: {{dosis}}</p>
+    <p *ngIf="vacunado===0">disease: {{enfermedad}}</p>
 
-  <button (click)="onVacunar()" [disabled]=" age < 18 && disease == true ">
+    <button *ngIf="vacunado===0" (click)="onVacunar()" [disabled]="age<18 || disease == true">
       vaccinate
     </button>
+  </div>
+
+  
 
   `
   
@@ -30,7 +32,7 @@ export class FirstTestComponent {
   @Input() fecha: string;
   @Input() enfermedad: boolean;
   @Input() tipo: string;
-  @Input() vacunado: string;
+  @Input() vacunado: number;
   @Input() dosis: number;
 
   @Output() vacunar = new EventEmitter();

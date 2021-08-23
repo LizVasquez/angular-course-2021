@@ -267,10 +267,11 @@ MI P WITH STYLE fontsize
 
 <p>----- FIRST TEST 23/08/2021 ----</p>
 
-<p>VACUNADOS {{section.vacunados.length}}</p>
-<p>NO VACUNADOS {{section.noVacunados.length}}</p>
+
+
 
 1- VACUNAS
+<p>VACUNADOS {{section.vacunados.length}}</p>
 
 <p>VACCINATED</p>
 <div style="display: flex; flexDirection: row;">
@@ -278,7 +279,9 @@ MI P WITH STYLE fontsize
     <app-first-test 
       [nombre]="vacuna.name"
       [edad]= "vacuna.age"
-      [fecha]="vacuna.date">
+      [fecha]="vacuna.date"
+      [vacunado]="vacuna.vaccined">
+      
       
     </app-first-test>
     
@@ -286,6 +289,7 @@ MI P WITH STYLE fontsize
 </div>
 
 <p> NOT VACCINATED</p>
+<p>NO VACUNADOS {{section.noVacunados.length}}</p>
 
 <div style="display: flex; flexDirection: row;">
   <div *ngFor="let nvacuna of section.noVacunados">
