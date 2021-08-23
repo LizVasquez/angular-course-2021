@@ -14,7 +14,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
     <p *ngIf="vacunado===0">doses: {{dosis}}</p>
     <p *ngIf="vacunado===0">disease: {{enfermedad}}</p>
 
-    <button *ngIf="vacunado===0" (click)="onVacunar()" [disabled]="age<18 || disease == true">
+    <button *ngIf="vacunado===0" (click)="onVacunar()" [disabled]="edad>18 || enfermedad == true">
       vaccinate
     </button>
   </div>
