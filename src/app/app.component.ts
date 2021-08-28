@@ -41,6 +41,10 @@ export class AppComponent {
 
 @ViewChild('task') task: ElementRef;
 
+  //clase 25 agosto
+  value = [1,2,3,4,5,6,7,8,9]; 
+
+
 
   constructor(){
 
