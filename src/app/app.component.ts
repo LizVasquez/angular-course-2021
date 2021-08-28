@@ -107,59 +107,69 @@ export class AppComponent {
    console.log('name=', ci); 
 
    const ejer1 = {1:'a',2:'a',3:'a',4:'a',5:'a',6:'a'};
-  console.log('ejercicio1',Object.values(ejer1));
+    console.log('ejercicio1',Object.values(ejer1));
 
-  const ejer2 = [1,2,3,4,5,6].filter(item => item%2).join();
-  console.log(ejer2)
+    const ejer2 = [1,2,3,4,5,6].filter(item => item%2).join();
+    console.log(ejer2)
 
    /* PERSON A */
-  /* --NORMAL 
-  this.tiktok.subscribe(v => {
+    /* --NORMAL 
+    this.tiktok.subscribe(v => {
     console.log(' PERSON A VIDEO', v);
-  });*/
+      });*/
 
-  /* con operadores 
-  this.tiktok.pipe(
-  map(s => s.join('-')),
-  map(s => s + 'hola')
-  ).subscribe(v => {
+    /* con operadores 
+   this.tiktok.pipe(
+    map(s => s.join('-')),
+    map(s => s + 'hola')
+    ).subscribe(v => {
     console.log(' PERSON A VIDEO', v);
-  });*/
+    });*/
 
 
-  /* subscripcion */
-  this.personASub = this.tiktok.pipe(
+   /* subscripcion */
+    this.personASub = this.tiktok.pipe(
     filter(s => s%2===0)
-  ).subscribe(v => {
+    ).subscribe(v => {
     console.log(' PERSON A VIDEO', v);
-  });
+    });
 
    /* PERSON B */
-  /*this.tiktok.subscribe(v => {
+   /*this.tiktok.subscribe(v => {
     console.log(' PERSON B VIDEO', v);
-  });*/
+    });*/
 
-  /* CON OPERADORES  
-  this.tiktok.pipe(
-  filter((v:any ) => v[0]%2 === 1)
-  ).subscribe(v => {
+    /* CON OPERADORES  
+    this.tiktok.pipe(
+    filter((v:any ) => v[0]%2 === 1)
+    ).subscribe(v => {
     console.log(' PERSON B VIDEO', v);
-  });*/
+    });*/
 
-  this.tiktok.pipe(
+    this.tiktok.pipe(
     delay(4000),
-  ).subscribe(v => {
+    ).subscribe(v => {
     console.log(' PERSON B VIDEO', v);
-  });
+    });
 
 
 
-  /* PERSON c */
-  this.tiktok.subscribe(v => {
+    /* PERSON c */
+    this.tiktok.subscribe(v => {
     console.log(' PERSON C VIDEO', v);
-  });
+    });
 
- }
+    //CLASE 24 AGOSTO
+    this.pure(2,3);
+    this.pure(10,2);
+    this.pure(5,5);
+
+    this.impure(2,3);
+    this.impure(10,2);
+    this.impure(5,5);
+    
+
+  }
 
  onAddVideo(){
     //this.tiktok.next(2);
@@ -206,6 +216,21 @@ onChangeBorderTask(){
   //this.task.nativeElement.style = 'border: 6px lime solid';
   
 }
+
+//CLASE 24 AGOSTO(FUNCIONES PURAS E IMPURAS)
+
+
+pure(a: number, b:number){
+  console.log('PURA:',a+b);
+  return a+b;
+}
+
+impure(a: number, b:number){
+  const aux = Math.random();
+  console.log('IMPURA:', a + b + aux)
+  return a + b + aux;
+}
+
 
 
 }
