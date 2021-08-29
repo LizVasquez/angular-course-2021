@@ -18,18 +18,46 @@ import { Test3ClaseComponent } from './test3-clase/test3-clase.component';
 import { Test3Component } from './test3/test3.component';
 import { View1Component } from './view1/view1.component';
 import { View2Component } from './view2/view2.component';
+import { View1sub1Component } from './view1/view1sub1/view1sub1.component';
+import { View1sub2Component } from './view1/view1sub2/view1sub2.component';
+
+
 
 const routes: Routes=[
   {
     path: '', redirectTo: 'view1', pathMatch: 'full'
   },
-  {
-    path: 'view1', component: View1Component
+
+  {path: 'view1', component: View1Component,
+    children: [
+
+      {
+        path: '', redirectTo:'view1sub1', pathMatch: 'full'
+
+      },
+
+      {
+        path: 'view1sub1', component: View1sub1Component,
+
+      },
+      {
+        path: 'view1sub2', component: View1sub2Component,
+
+      }
+
+    ]
+    
 
   },
+  {path: 'view2', component: View2Component},
+
+  //para navegacion por modulos
   {
-    path: 'view2', component: View2Component
+    path: 'view3',loadChildren:() => import('./view3/view3.module').then(m => m.View3Module)
   }
+
+
+
 ];
 
 @NgModule({
@@ -42,7 +70,9 @@ const routes: Routes=[
     Directive1AtrDirective,
     Directive2EstrucDirective,
     View1Component,
-    View2Component
+    View2Component,
+    View1sub1Component,
+    View1sub2Component
   ],
   imports: [
     BrowserModule,

@@ -269,11 +269,22 @@ MI P WITH STYLE fontsize
 <button (click)="value.push(10)"> PURE AND IMPURE</button>
 
 <!-- NAVEGACION POR COMPONENTES 25/08/2021-->
-<p>----------------navegacion por componentes ------------------------</p>
+<p>----------------navegacion por componentes y módulos ------------------------</p>
+
+<!-- para navegacion por modulos-->
+<button routerLink="view3"
+        routerLinkActive="active-router">view3</button>
+
+<!-- para navegacion por componentes-->
 <button routerLink="view1"
         routerLinkActive="active-router">view1</button>
 <button routerLink="view2"
         routerLinkActive="active-router">view2</button>
+<button routerLink="view1/view1sub1"
+        routerLinkActive="active-router">view1/view1sub1</button>
+
+
+
 
 <div style="border: 4px salmon solid;">
 <router-outlet>
