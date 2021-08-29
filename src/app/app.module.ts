@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -15,6 +16,21 @@ import { Test1Component } from './test1/test1.component';
 import { Test2Component } from './test2/test2.component';
 import { Test3ClaseComponent } from './test3-clase/test3-clase.component';
 import { Test3Component } from './test3/test3.component';
+import { View1Component } from './view1/view1.component';
+import { View2Component } from './view2/view2.component';
+
+const routes: Routes=[
+  {
+    path: '', redirectTo: 'view1', pathMatch: 'full'
+  },
+  {
+    path: 'view1', component: View1Component
+
+  },
+  {
+    path: 'view2', component: View2Component
+  }
+];
 
 @NgModule({
   declarations: [
@@ -24,7 +40,9 @@ import { Test3Component } from './test3/test3.component';
     Test3Component,
     Test3ClaseComponent,
     Directive1AtrDirective,
-    Directive2EstrucDirective
+    Directive2EstrucDirective,
+    View1Component,
+    View2Component
   ],
   imports: [
     BrowserModule,
@@ -33,7 +51,8 @@ import { Test3Component } from './test3/test3.component';
     HomeModule,
     AdminModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

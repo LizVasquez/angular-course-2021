@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
     </p>
     <p>{{ test3 ?? test4}}</p>
     <p>{{ test3 || 'jajajaja'}}</p>
-    <button (click)="testParams()"> TEST TEMPLATE TS</button>
+    <!--<button (click)="testParams()"> TEST TEMPLATE TS</button>-->
+    <button (click)="testParams('hola', 'chau')"> TEST TEMPLATE TS</button>
   `,
   styles: [
     `
@@ -40,7 +41,7 @@ export class Admin2Component implements OnInit {
    * @params lastName 
    * return name and lastName joined
   */
-  public testParams(name: string, lastname? : string = 'Liliana'): string{
+  public testParams(name: string, lastname : string = 'Liliana'): string{
     const aux = 'juan';
     console.log(name  ??  aux + ' '+ lastname)
     return name + ' ' + lastname;

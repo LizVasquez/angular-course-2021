@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PurePipe implements PipeTransform {
 
-  transform(value: number[]): number {
+  transform(value: number[]): number[] {
     return value.filter(s => s%2 ===0);
   }
 
