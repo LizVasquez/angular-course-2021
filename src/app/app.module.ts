@@ -20,6 +20,16 @@ import { View1Component } from './view1/view1.component';
 import { View2Component } from './view2/view2.component';
 import { View1sub1Component } from './view1/view1sub1/view1sub1.component';
 import { View1sub2Component } from './view1/view1sub2/view1sub2.component';
+import { HomeCComponent } from './home-c/home-c.component';
+import { Home1cComponent } from './home-c/home1c/home1c.component';
+import { Home2cComponent } from './home-c/home2c/home2c.component';
+import { Home1Component } from './pages/home/home1/home1.component';
+import { Home2Component } from './pages/home/home2/home2.component';
+import { AdminCComponent } from './admin-c/admin-c.component';
+import { Admin1cComponent } from './admin-c/admin1c/admin1c.component';
+import { Admin2cComponent } from './admin-c/admin2c/admin2c.component';
+import { Admin1Component } from './pages/admin/admin1/admin1.component';
+import { Admin2Component } from './pages/admin/admin2/admin2.component';
 
 
 
@@ -55,7 +65,25 @@ const routes: Routes=[
   {
     path: 'view3',loadChildren:() => import('./view3/view3.module').then(m => m.View3Module)
   }
+];
 
+const tarea: Routes=[
+  { path: 'home-c', component: HomeCComponent,
+    children: [
+
+    {path: '', redirectTo:'home1c', pathMatch: 'full'},
+    {path: 'home1c', component: Home1cComponent,},
+    {path: 'home2c', component: Home2cComponent,}
+
+  ]},
+  { path: 'admin-c', component: AdminCComponent,
+    children: [
+
+    {path: '', redirectTo:'admin1c', pathMatch: 'full'},
+    {path: 'admin1c', component: Admin1cComponent,},
+    {path: 'admin2c', component: Admin2cComponent,}
+
+  ]}
 
 
 ];
@@ -72,7 +100,13 @@ const routes: Routes=[
     View1Component,
     View2Component,
     View1sub1Component,
-    View1sub2Component
+    View1sub2Component,
+    HomeCComponent,
+    Home1cComponent,
+    Home2cComponent,
+    AdminCComponent,
+    Admin1cComponent,
+    Admin2cComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +116,8 @@ const routes: Routes=[
     AdminModule,
     CoreModule,
     SharedModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    RouterModule.forRoot(tarea)
   ],
   providers: [],
   bootstrap: [AppComponent]
