@@ -59,7 +59,7 @@ const routes: Routes=[
     
 
   },
-  {path: 'view2', component: View2Component},
+  {path: 'view2/:id/sub/:id2', component: View2Component},
 
   //para navegacion por modulos
   {

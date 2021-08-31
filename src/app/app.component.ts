@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import {BehaviorSubject, of, Subscription} from 'rxjs';
 import { delay, filter, map } from 'rxjs/operators';
 
@@ -44,9 +45,12 @@ export class AppComponent {
   //clase 25 agosto
   value = [1,2,3,4,5,6,7,8,9]; 
 
+  //clase 26 agosto
+  id:number=3;
 
 
-  constructor(){
+
+  constructor(private router: Router){
 
     const testMap = [1,2,3,4,5,6].map(item => item * 2);
     console.log(testMap);
@@ -163,6 +167,7 @@ export class AppComponent {
     console.log(' PERSON C VIDEO', v);
     });
 
+    
     //CLASE 24 AGOSTO
     this.pure(2,3);
     this.pure(10,2);
@@ -233,6 +238,12 @@ impure(a: number, b:number){
   const aux = Math.random();
   console.log('IMPURA:', a + b + aux)
   return a + b + aux;
+}
+
+//clase 26 agosto navegacion desde ts
+onGoView2FromTS(): void{
+ this.router.navigate(['view2', this.id,'sub',15])
+
 }
 
 
