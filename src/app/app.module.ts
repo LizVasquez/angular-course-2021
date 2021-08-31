@@ -30,6 +30,9 @@ import { Admin1cComponent } from './admin-c/admin1c/admin1c.component';
 import { Admin2cComponent } from './admin-c/admin2c/admin2c.component';
 import { Admin1Component } from './pages/admin/admin1/admin1.component';
 import { Admin2Component } from './pages/admin/admin2/admin2.component';
+import { Admin1TaskComponent } from './admin-module/admin-task/admin1-task/admin1-task.component';
+import { Admin2TaskComponent } from './admin-module/admin-task/admin2-task/admin2-task.component';
+
 
 
 
@@ -69,21 +72,26 @@ const routes: Routes=[
 
 const tarea: Routes=[
   { path: 'home-c', component: HomeCComponent,
-    children: [
+    children: 
+    [
+      {path: '', redirectTo:'home1c', pathMatch: 'full'},
+      {path: 'home1c', component: Home1cComponent,},
+      {path: 'home2c', component: Home2cComponent,}
+    ]
+  },
 
-    {path: '', redirectTo:'home1c', pathMatch: 'full'},
-    {path: 'home1c', component: Home1cComponent,},
-    {path: 'home2c', component: Home2cComponent,}
+  {path: 'admin-c', component: AdminCComponent,
+      children:
+      [
+        {path: '', redirectTo:'admin1c', pathMatch: 'full'},
+        {path: 'admin1c', component: Admin1cComponent,},
+        {path: 'admin2c', component: Admin2cComponent,}
+      ]
+  },
 
-  ]},
-  { path: 'admin-c', component: AdminCComponent,
-    children: [
-
-    {path: '', redirectTo:'admin1c', pathMatch: 'full'},
-    {path: 'admin1c', component: Admin1cComponent,},
-    {path: 'admin2c', component: Admin2cComponent,}
-
-  ]}
+   //para navegacion por modulos TAREA 27/08/2021
+   {path: 'home-module',loadChildren:() => import('./home-module/home-module.module').then(m => m.HomeModuleModule)},
+   {path: 'admin-module',loadChildren:() => import('./admin-module/admin-module.module').then(m => m.AdminModuleModule)}
 
 
 ];
