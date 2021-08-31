@@ -242,7 +242,11 @@ impure(a: number, b:number){
 
 //clase 26 agosto navegacion desde ts
 onGoView2FromTS(): void{
- this.router.navigate(['view2', this.id,'sub',15])
+ this.router.navigate(
+   ['view2', this.id,'sub',15],
+   //con queryparams
+   {queryParams:{name: 'lilian', lastname: 'mendoza'}}
+   )
 
 }
 

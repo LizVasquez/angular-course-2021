@@ -278,8 +278,11 @@ MI P WITH STYLE fontsize
 <!-- para navegacion por componentes-->
 <button routerLink="view1"
         routerLinkActive="active-router">view1</button>
+
 <button routerLink="view2/5/sub/34"
-        routerLinkActive="active-router">view2</button>
+      [queryParams]= "{name:'Liz', lastName: 'Vasquez'}"
+      routerLinkActive="active-router">view2</button>
+
 <button routerLink="view1/view1sub1"
         routerLinkActive="active-router">view1/view1sub1</button>
 

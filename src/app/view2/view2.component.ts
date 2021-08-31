@@ -14,12 +14,19 @@ export class View2Component implements OnInit {
 
   ngOnInit(): void {
 
-    /*
-    this.router.params.subscribe(p=>{
+    //clase 26 de agosto
+
+    /*this.router.params.subscribe(p=>{
       console.log('PARAMS',p);
-    });*/
+    });
+
+    //para escuchar a los queryparams
+    this.router.queryParams.subscribe(q => {
+      console.log('QUERY PARAMS', q);
+    })*/
 
     console.log('SNAPSHOT',this.router.snapshot.params);
+    console.log('SNAPSHOT QUERY PARAMS',this.router.snapshot.queryParams);
     
   }
 
