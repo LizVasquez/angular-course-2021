@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SingletonService } from 'src/app/login/services/singleton.service';
+import { SingletonService } from '../../login/services/singleton.service';
 
 @Component({
   templateUrl: './home.component.html',
