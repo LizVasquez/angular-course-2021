@@ -59,7 +59,12 @@ export class LoginComponent implements OnInit {
     this.publicationService.delete('p0002').subscribe(
       res => console.log(res)
     )
+  }
 
+
+
+  onSubmitTemplante(values:any){
+    console.log('VALUES: ', values);
 
   }
 }
