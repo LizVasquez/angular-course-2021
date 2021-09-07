@@ -1,1 +1,20 @@
-<p>HOLA </p>
+<p>------- 1. VACUNADAS </p>
+
+<div style="display: flex; flex-direction: row">
+<div *ngFor="let persona of vacunados">
+  <app-vacunados [info]="persona">
+
+  </app-vacunados>
+</div>
+</div>
+
+
+<p> --- NO VACUNADAS </p>
+
+<div style="display: flex; flex-direction: row;">
+  <div *ngFor="let persona of noVacunados; let i = index">
+    <app-no-vacunados [info]="persona">
+      
+    </app-no-vacunados>
+  </div>
+</div>

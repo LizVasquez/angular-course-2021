@@ -4,6 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NoVacunadosService } from './services/no-vacunados.service';
+import { VacunadosService } from './services/vacunados.service';
+import { CommonModule } from '@angular/common';
+import { VacunadosComponent } from './vacunados/vacunados.component';
+import { NoVacunadosComponent } from './no-vacunados/no-vacunados.component';
 
 
 
@@ -13,14 +18,22 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VacunadosComponent,
+    NoVacunadosComponent
     
   ],
   imports: [
-    BrowserModule
-   
+    BrowserModule,
+    CommonModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    NoVacunadosService, 
+    VacunadosService,
+    VacunadosComponent
+    ,NoVacunadosComponent],
+    
   bootstrap: [AppComponent]
 })
 export class AppModule { }
