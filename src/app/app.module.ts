@@ -1,37 +1,37 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
-import { SingletonService } from './login/services/singleton.service';
-import { HttpClientModule } from '@angular/common/http';
+import { LugarComponent } from './lugar/lugar.component';
+
+
+const tarea: Routes=[
+  {path: 'jurados',loadChildren:() => import('./jurados/jurados.module').then(m => m.JuradosModule)},
+  {path: 'votacion', loadChildren:() => import('./votacion/votacion.module').then(m => m.VotacionModule)},
+  {path: 'lugar', component: LugarComponent}
 
 
 
-
-const routes: Routes=[
-  {path: '', redirectTo:'login', pathMatch: 'full'},
-  {path: 'login', loadChildren: ()=>
-    import('./login/login.module').then(m => m.LoginModule)},
-  
-  {path: 'pages', loadChildren: ()=>
-    import('./pages/pages.module').then(m => m.PagesModule)}
 
 ]
-    
+
+
+
+
+  
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LugarComponent
     
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
-    HttpClientModule
-   
+    CommonModule,
+    RouterModule.forRoot(tarea)
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
