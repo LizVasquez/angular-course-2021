@@ -11,6 +11,9 @@ import { Login1Component } from './components/login1/login1.component';
 import { Login2Component } from './components/login2/login2.component';
 import { UtilsService } from './services/utils.service';
 import { PublicationService } from './services/publication.service';
+import {MatCardModule} from "@angular/material/card";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 
 
 const routes: Routes= [
@@ -32,7 +35,12 @@ const routes: Routes= [
     NgbButtonsModule,
     MatSliderModule,
     MatProgressSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbButtonsModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule
+
 
 
   ],
