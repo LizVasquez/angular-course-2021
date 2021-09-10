@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -10,19 +10,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  name:string ='';
-
-  //name = new FormControl('');
-
-  formReactive : FormGroup;
-
-
-
-  constructor(private formBuilder:FormBuilder) { 
-    this.formReactive = this.formBuilder.group({
-      name:['', [Validators.required, Validators.minLength(3)]],
-      lastName: ['', [Validators.required]]
-    });
+ 
+  constructor(private authService: AuthService) { 
+    
       
   }
 
@@ -30,11 +20,21 @@ export class LoginComponent implements OnInit {
 
   }
 
+  login(form:any){
+    this.authService.login({
+      email: form.value.email,
+      password:form.value.password,
+      returnSecureToken: true
 
-  getValue(value:string){
-    return this.formReactive.get(value);
+    }).subscribe(res => {
+      console.log('RESPONSE',res);
+    })
+
 
   }
+
+
+
   
 
 
