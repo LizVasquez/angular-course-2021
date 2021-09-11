@@ -22,13 +22,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
     if(token){
 
-      //const params = new HttpParams();
-      //params.append('auth', token)
-
-      //console.log('PARAMS',params)
-
+      let params = new HttpParams();
+      params = params.append('auth', token);
+      
       request = request.clone({
-        url: `${request.url}?auth=${token}`
+        url: `${request.url}`,
+        params
       });
     }
 
