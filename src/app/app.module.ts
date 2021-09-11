@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
+
 const routes: Routes=[
   {path: '', redirectTo:'login', pathMatch: 'full'},
   {path: 'login', loadChildren: ()=>

@@ -15,4 +15,9 @@ export class AuthService {
     return this.http.post(`${this.url}/v1/accounts:signInWithPassword?key=${this.key}`, body);
 
   }
+
+  public signUp(body:any): Observable<any>{
+    return this.http.post(`${this.url}/v1/accounts:signUp?key=${this.key}`, body);
+
+  }
 }
