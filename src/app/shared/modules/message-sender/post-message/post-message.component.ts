@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import {PublicationService} from "../../../../pages/shared/services/publication.service";
 import {AuthService} from "../../../../core/services/auth.service";
-import { HomeService } from 'src/app/pages/home/home.service';
+import {HomeService} from "../../../../pages/home/home.service";
 
 
 @Component({
