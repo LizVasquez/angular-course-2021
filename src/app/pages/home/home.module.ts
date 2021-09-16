@@ -7,7 +7,7 @@ import { StoryComponent } from './components/story/story.component';
 import { PublicationService } from '../shared/services/publication.service';
 import {MessageSenderModule} from "../../shared/modules/message-sender/message-sender.module";
 import {PostModule} from "../../shared/modules/post/post.module";
-import { SharedMaterialModule } from 'src/app/shared/shared-material.module';
+import {SharedMaterialModule} from "../../shared/shared-material.module";
 
 const routes: Routes= [
   {path: '', component: HomeComponent}
