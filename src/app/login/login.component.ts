@@ -21,6 +21,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.authService.verifyLogged()){
+      this.router.navigate(['pages']);
+    }
+    
 
   }
 
