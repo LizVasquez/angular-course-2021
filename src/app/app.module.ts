@@ -7,6 +7,8 @@ import { WalletComponent } from './wallet/wallet.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { TransactionService } from './services/transaction.service';
 import { WalletService } from './services/wallet.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormularioComponent } from './formulario/formulario.component';
 ;
 
     
@@ -15,11 +17,14 @@ import { WalletService } from './services/wallet.service';
   declarations: [
     AppComponent,
     WalletComponent,
-    TransactionComponent
+    TransactionComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     TransactionService,
