@@ -2,30 +2,28 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { AppComponent } from './app.component';;
-import { CoreModule } from './core/core.module';
+import { AppComponent } from './app.component';import { HttpClientModule } from '@angular/common/http';
+import { WalletComponent } from './wallet/wallet.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { TransactionService } from './services/transaction.service';
+import { WalletService } from './services/wallet.service';
+;
 
-
-const routes: Routes=[
-  {path: '', redirectTo:'login', pathMatch: 'full'},
-  {path: 'login', loadChildren: ()=>
-    import('./login/login.module').then(m => m.LoginModule)},
-  
-  {path: 'pages', loadChildren: ()=>
-    import('./pages/pages.module').then(m => m.PagesModule)}
-
-]
     
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WalletComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
-    CoreModule
+    HttpClientModule
+  ],
+  providers: [
+    TransactionService,
+    WalletService
   ],
   bootstrap: [AppComponent]
 })
