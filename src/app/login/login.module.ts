@@ -3,15 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbButtonsModule, NgbModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
-import {MatSliderModule} from "@angular/material/slider";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {MatCardModule} from "@angular/material/card";
-import {MatIconModule} from "@angular/material/icon";
-import {MatButtonModule} from "@angular/material/button";
 import { RegisterComponent } from './components/register/register.component';
-import {MatDialogModule} from "@angular/material/dialog";
-
+import {SharedMaterialModule} from "../shared/shared-material.module";
 
 
 const routes: Routes= [
@@ -28,25 +21,10 @@ const routes: Routes= [
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild(routes),
-    NgbToastModule,
-    NgbButtonsModule,
-    MatSliderModule,
-    MatProgressSpinnerModule,
     ReactiveFormsModule,
-    NgbButtonsModule,
-    MatCardModule,
-    MatIconModule,
-    MatButtonModule,
-    MatDialogModule
-    
+    RouterModule.forChild(routes),
+    SharedMaterialModule
 
-
-
-  ],
-  providers: [
-    
-    
   ]
 })
 export class LoginModule { }

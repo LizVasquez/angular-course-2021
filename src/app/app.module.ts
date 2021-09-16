@@ -2,15 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AppComponent } from './app.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './core/interceptors/auth.interceptor';
-import { AuthService } from './login/services/auth.service';
-
-
-
-
+import { AppComponent } from './app.component';;
+import { CoreModule } from './core/core.module';
 
 
 const routes: Routes=[
@@ -27,23 +20,12 @@ const routes: Routes=[
 @NgModule({
   declarations: [
     AppComponent
-    
-    
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
-   
-  ],
-  providers: [
-    AuthService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi:true
-    }
+    CoreModule
   ],
   bootstrap: [AppComponent]
 })

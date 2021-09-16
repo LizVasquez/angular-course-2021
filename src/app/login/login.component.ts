@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
-import { AuthService } from './services/auth.service';
+import { AuthService } from '../core/services/auth.service';
 
 
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
 
@@ -34,7 +33,7 @@ export class LoginComponent implements OnInit {
     }).subscribe(res => {
       console.log('RESPONSE',res);
       this.router.navigate(['pages']); 
-    })
+    });
 
 
   }
@@ -43,10 +42,4 @@ export class LoginComponent implements OnInit {
     this.matDialog.open(RegisterComponent)
 
   }
-
-
-
-  
-
-
 }
