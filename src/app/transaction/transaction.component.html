@@ -1,4 +1,4 @@
-<div style="border: 1px solid navy;"
+<div style="border: 1px solid white;"
     [style.background]="data.mineType === 'PoW' ? 'yellow' : 'green'">
   <p>date: {{data.date | date:'yyyy/MM/dd'}}</p>
   <p>from: {{data.from}}</p>
@@ -7,6 +7,7 @@
   <p>moneyType: {{data.moneyType | titlecase}}</p>
   <p>mineType: {{data.mineType}}</p>
   <p>miner: {{data.miner}}</p>
+  <button (click)="onEdit(transaction)"> Edit</button>
 
   <ng-content>
 

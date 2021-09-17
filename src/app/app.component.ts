@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { TransactionService } from './services/transaction.service';
 import { WalletService } from './services/wallet.service';
 
@@ -9,8 +9,20 @@ import { WalletService } from './services/wallet.service';
 })
 export class AppComponent {
 
+  tipoForm = true;
+
+  formValues: any = {
+    from: '',
+    to: '',
+    quantity: '',
+    moneyType: '',
+    typeMine: '',
+    miner: ''
+  };
+
   wallets: any[] = [];
-  transactions: any[] = []
+  transactions: any[] = [];
+  idEdit: any;
 
   constructor(private walletService: WalletService,
               private transactionService: TransactionService) {
@@ -54,6 +66,39 @@ export class AppComponent {
       this.wallets = Object.entries(res).map((s: any) => ({id: s[0], ...s[1]}))
     );
   }
+
+  onEdit(transaction): void{
+    this.idEdit = transaction.id;
+    this.formValues= transaction;
+  }
+
+  onSave(data): void {
+    if (this.tipoForm) {
+    this.transactionService.create({
+      from: data.from,
+      to: data.to,
+      quantity: data.quantity,
+      moneyType: data.moneyType,
+      typeMine: data.mineType,
+      miner: data.miner,
+      date: new Date()
+
+    }
+
+    ).subscribe(() => this.loadTransactions());
+    } else {
+       this.transactionService.patch(this.idEdit, data).subscribe(() => this.loadTransactions());
+    }
+  }
+
+
+
+
+  
+
+ 
+
+
 
 
 }

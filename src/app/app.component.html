@@ -25,33 +25,24 @@
 <div style="display: flex; flex-direction: row;">
   <div *ngFor="let transaction of transactions; let i = index;">
 
-    <app-transaction [data]="transaction">
+    <app-transaction [data]="transaction"(edit)="onEdit(transaction); tipoForm = false ">
       <button
         [disabled]="transaction.mineType === 'PoS' &&
        transaction.miner > 5"
       (click)="onMine(transaction)">
         Mine
       </button>
-      <button (click)="onEdit()"> Edit</button>
+      
     </app-transaction>
   </div>
 </div>
 
 
 <p>---------------FORM---------------</p>
+<app-formulario [val]="formValues"(enviar)= onSave($event)>
+  
+</app-formulario>
 
-<div style="border: 1px solid navy;">
-  <p>CREAR/EDIT</p>
-  <p>TRANSACTION</p>
-  <form #form="ngForm" style="display: flex; flex-direction: column;" (ngSubmit)="edit(form)">
-    FROM: <input type="text">
-    TO: <input type="text">
-    QUANTITY: <input type="number">
-    MONEY TYPE: <input type="text">
-    MINER: <input type="number">
-  </form>
-
-</div> 
 
 
 

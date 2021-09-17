@@ -22,6 +22,10 @@ export class TransactionService {
     return this.http.put(`${this.url}/transactions/${id}.json`, body);
   }
 
+  public patch(id: string, body: any): Observable<any> {
+    return this.http.patch(`${this.url}/transactions/${id}.json`, body);
+  }
+
   public delete(id: string): Observable<any> {
     return this.http.delete(`${this.url}/transactions/${id}.json`)
   }
